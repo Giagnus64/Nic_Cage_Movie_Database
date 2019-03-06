@@ -1,0 +1,15 @@
+{
+  "name": "nic_cage_movie_database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "character_raw.js",
+  "scripts": {
+    "dev_start": "nodemon sort_request"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fromentries": "^1.1.0",
+    "nodemon": "^1.18.10"
+  }
+}
