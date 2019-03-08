@@ -1,19 +1,29 @@
 const express = require('express'),
       mongoose = require('mongoose');
 const Movie = require('./models/movie');
-const movieList = require('./sorted/moviesDone.json');
+const movieList = require('./sorted/moviesV2.json');
+
+
 mongoose.connect('mongodb://localhost:27017/nic_cage_movie_database', {useNewUrlParser: true});
 
 const app = express();
-const router = express.Router();
 
 //MiddleWare
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+app.use('/', require('./routes'));
+app.use('/', require('./movieController'));
 
-app.get("/", (req,res) =>{
-    res.send("Welcome to the home page!");
-})
+//middleware handler for 404 not found
+app.use((req,res,next) =>{
+    res.status(404).send("Page does not exist. Please visit the home page here:<homepageUrl>");
+});
+
+//handler for Error 500
+app.use((err,req,res,next) =>{
+    console.error(err.stack);
+    res.send('This is the 500 page');
+});
 
 app.listen(process.env.PORT || 5000, process.env.IP, () => {
     console.log('Server started!');
@@ -49,5 +59,4 @@ Movie.create({
 //Seed Database
 movieList.movies.forEach((movieObj) => {
     Movie.create(movieObj);
-});
-*/
+});*/

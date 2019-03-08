@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 //MOVIE MODEL
 const movieSchema = new mongoose.Schema({
-    genres: Array, 
+    genres: [String], 
     id: Number, 
     imdb_id: String, 
     overview: String, 
@@ -12,7 +12,7 @@ const movieSchema = new mongoose.Schema({
     title: String, 
     character: String, 
     director: String, 
-    supportingActors: Array
+    supportingActors: [String]
 });
 
 module.exports = mongoose.model("Movie", movieSchema);

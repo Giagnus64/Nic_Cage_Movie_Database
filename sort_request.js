@@ -15,6 +15,27 @@ const https = require('https');
 // const omdbRaw = require('./sorted/omdb_raw.json');
 // const moviesAlmost = require('./sorted/moviesAlmost.json');
 //const moviesFinished = require('./sorted/moviesFinished.json');
+const moviesSorted = require('./sorted/moviesDone.json');
+
+// let genresFixed = [];
+
+// moviesSorted.movies.forEach((movieObj) =>{
+// 	let genreArray = [];
+// 	movieObj.genres.forEach((genreObj) =>{
+// 		genreArray.push(genreObj.name);
+// 	});
+// 	movieObj.genres = genreArray;
+// 	genresFixed.push(movieObj);
+// });
+
+// const jsonObj = {movies: genresFixed};
+// //console.log(jsonObj);
+
+// fs.writeFile(path.join(__dirname, '/sorted', 'moviesV2.json'), JSON.stringify(jsonObj), 'utf8', (err) => {
+// 	if (err) throw err;
+// 	console.log('copied');
+// 	return true;
+// });
 
 //========================
 //FIX MOVIE IDS
