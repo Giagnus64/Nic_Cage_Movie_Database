@@ -1,14 +1,18 @@
-let MovieModel = require('./models/movie');
+let MovieModel = require('../models/movie');
 const express = require('express');
-const app = express();
 const router = express.Router();
 
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+//get all movies
+router.get("/", (req, res) => {
+    MovieModel.find({}, (err, movies) => {
+        (err) ? console.log("Error" + err) :
+            res.json(movies);
+    });
 
+});
 //search by internal ID
-router.get("/api/movies/id/:id", (req,res) =>{  
+router.get("/id/:id", (req,res) =>{  
     MovieModel.find({id:req.params.id}, (err, foundMovie) =>{
         if(err) {
             res.json({
@@ -23,7 +27,7 @@ router.get("/api/movies/id/:id", (req,res) =>{
     });
 });
 //Search by character name
-router.get("/api/movies/character/:character", (req, res) => {
+router.get("/character/:character", (req, res) => {
     //ignore case
     const charRegExp = new RegExp(req.params.character, 'i');
     MovieModel.find({ character: charRegExp }, function (err, foundMovie) {
@@ -33,7 +37,7 @@ router.get("/api/movies/character/:character", (req, res) => {
             });
         }
         if (foundMovie.length === 0) {
-            res.send("No movies were found with your query. Please try again");
+            res.send("No movies were found with your query. Please try again.");
         } else {
             res.json(foundMovie);
         }
@@ -41,7 +45,7 @@ router.get("/api/movies/character/:character", (req, res) => {
 });
 
 // Search by director name
-router.get("/api/movies/director/:director", (req, res) => {
+router.get("/director/:director", (req, res) => {
     //ignore case
     const dirRegExp = new RegExp(req.params.director, 'i');
     MovieModel.find({ director: dirRegExp }, function (err, foundMovie) {
@@ -59,7 +63,7 @@ router.get("/api/movies/director/:director", (req, res) => {
 });
 
 //search by title
-router.get("/api/movies/title/:title", (req,res) => {
+router.get("/title/:title", (req,res) => {
     //ignore case
     const titleRegExp = new RegExp(req.params.title, 'i');
     MovieModel.find({ title: titleRegExp }, function(err, foundMovie){
@@ -76,7 +80,7 @@ router.get("/api/movies/title/:title", (req,res) => {
     });                 
 });
 //search by genre
-router.get("/api/movies/genre/:genre", (req,res) => {
+router.get("/genre/:genre", (req,res) => {
     //ignore case
     const genreRegExp = new RegExp(req.params.genre, 'i');
     
@@ -96,7 +100,7 @@ router.get("/api/movies/genre/:genre", (req,res) => {
     });                 
 });
 //Search for random movie
-router.get("/api/movies/random", (req,res) => {
+router.get("/random", (req,res) => {
     MovieModel.find({ }, (err, movies) => {
         if(err){
             console.log(err);

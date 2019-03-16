@@ -16,6 +16,7 @@
     "mongoose": "^5.4.17"
   },
   "devDependencies": {
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "prismjs": "^1.15.0"
   }
 }
