@@ -1,0 +1,33 @@
+body{
+  width:100%;
+  height:100%; 
+  margin:auto;
+  text-align:center;
+  background-color:#EDEDED;
+}
+
+h1{
+    font-size:32px;
+}
+img{
+    max-width:40%;
+    margin-top:30px;
+}
+
+.instructions{
+    max-width:80%;
+    margin:auto;
+}
+h2{
+    font-size:30px;
+}
+p{
+    font-size:18px;
+}
+#uncaged{
+    max-width:60%;
+    margin-top: 50px;
+}
+pre{
+    border: 2px dashed black;
+}

@@ -4,12 +4,19 @@
   "description": "",
   "main": "character_raw.js",
   "scripts": {
-    "dev_start": "nodemon sort_request"
+    "dev_start": "nodemon app",
+    "server_start": "node app",
+    "nodemon": "nodemon --config './nodemon.json'"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.4",
     "fromentries": "^1.1.0",
-    "nodemon": "^1.18.10"
+    "mongoose": "^5.4.17"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10",
+    "prismjs": "^1.15.0"
   }
 }

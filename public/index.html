@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>NCMDB</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styles/prism.css"> 
+        <link rel="stylesheet" href="./styles/styles.css"> 
+    </head>
+    <body>
+       <div class="header">
+           <img src="./images/Nicolas-Cage-Pictures Hi-Res.jpg" alt="Stunning Beauty Nicolas Cage">
+        <h1>Welcome to the Nicolas Cage Movie Database!</h1>
+       </div>
+    <div class="container instructions">
+       <h2>Get All Movies</h2>
+        <p>All movies can be retrieved by going to: </p>
+        <pre><code class="language-js">https://api.ncmdb.com/api/movies</code></pre>
+
+        <h2>Get Random Movie</h2>
+        <pre><code class="language-js">https://api.ncmdb.com/api/movies/random</code></pre>
+        <p>Example:</p>
+        <pre><code class="language-js">[
+    {
+        "genres":
+            ["Drama","History","Romance"],
+        "supportingActors":
+            ["Penélope Cruz","John Hurt","Christian Bale","Irene Papas"],
+        "_id":"5c81c41f3d09c8aab371b636",
+        "id":10,
+        "imdb_id":"tt0238112",
+        "overview":"When a Greek fisherman leaves to fight with the Greek army during WWII, his fiancee falls in love with the local Italian commander. The film is based on a novel about an Italian soldier's experiences during the Italian occupation of the Greek island of Cephalonia (Kefalonia), but Hollywood made it into a pure love story by removing much of the \"unpleasant\" stuff.",
+        "release_date":"2001-04-18",
+        "tagline":"",
+        "title":"Captain Corelli's Mandolin",
+        "character":"Captain Antonio Corelli",
+        "director":"John Madden",
+        "__v":0
+    }
+]</code></pre>
+
+        <h2>Get Movies by Title</h2>
+        <pre><code class="language-js">https://api.ncmdb.com/api/movies/title/"Title"</code></pre>
+        <p>Example:</p>
+        <pre>
+<code class="language-js">// URL:
+const url = https://api.ncmdb.com/api/movies/title/Vampire's%20Kiss
+// Result:
+[
+    {
+        "genres":
+            ["Comedy","Horror"],
+        "supportingActors":
+            ["Maria Conchita Alonso","Jennifer Beals","Elizabeth Ashley"],
+        "_id":"5c81c41f3d09c8aab371b649",
+        "id":29,
+        "imdb_id":"tt0098577",
+        "overview":"A publishing executive is visited and bitten by a vampire and starts exhibiting erratic behavior. He pushes
+        his secretary to extremes as he tries to come to terms with his affliction. The vampire continues to visit and drink his
+        blood, and as his madness deepens, it begins to look as if some of the events he's experiencing may be hallucinations.",
+        "release_date":"1988-09-17",
+        "tagline":"Seduction. Romance. Murder. The things one does for love.",
+        "title":"Vampire's Kiss",
+        "character":"Peter Loew",
+        "director":"Robert Bierman",
+        "__v":0
+    }
+]</code></pre>
+
+        <h2>Get Movies by Nic Cage's Character</h2>
+        <pre><code class="language-js">https://api.ncmdb.com/api/movies/character/"Character"</code></pre>
+        <p>Example:</p>
+        <pre>
+<code class="language-js">// URL:
+const url = https://api.ncmdb.com/api/movies/character/Peter%20Loew
+// Result:
+[
+    {
+        "genres":
+            ["Comedy","Horror"],
+        "supportingActors":
+            ["Maria Conchita Alonso","Jennifer Beals","Elizabeth Ashley"],
+        "_id":"5c81c41f3d09c8aab371b649",
+        "id":29,
+        "imdb_id":"tt0098577",
+        "overview":"A publishing executive is visited and bitten by a vampire and starts exhibiting erratic behavior. He pushes
+        his secretary to extremes as he tries to come to terms with his affliction. The vampire continues to visit and drink his
+        blood, and as his madness deepens, it begins to look as if some of the events he's experiencing may be hallucinations.",
+        "release_date":"1988-09-17",
+        "tagline":"Seduction. Romance. Murder. The things one does for love.",
+        "title":"Vampire's Kiss",
+        "character":"Peter Loew",
+        "director":"Robert Bierman",
+        "__v":0
+    }
+]</code></pre>
+        <h2>Get Movies by Director</h2>
+        <pre><code class="language-js">https://api.ncmdb.com/api/movies/director/"Director"</code></pre>
+        <p>Example:</p>
+                <pre>
+<code class="language-js">// URL:
+const url = https://api.ncmdb.com/api/movies/director/Robert%20Bierman
+// Result:
+[
+    {
+        "genres":
+            ["Comedy","Horror"],
+        "supportingActors":
+            ["Maria Conchita Alonso","Jennifer Beals","Elizabeth Ashley"],
+        "_id":"5c81c41f3d09c8aab371b649",
+        "id":29,
+        "imdb_id":"tt0098577",
+        "overview":"A publishing executive is visited and bitten by a vampire and starts exhibiting erratic behavior. He pushes
+        his secretary to extremes as he tries to come to terms with his affliction. The vampire continues to visit and drink his
+        blood, and as his madness deepens, it begins to look as if some of the events he's experiencing may be hallucinations.",
+        "release_date":"1988-09-17",
+        "tagline":"Seduction. Romance. Murder. The things one does for love.",
+        "title":"Vampire's Kiss",
+        "character":"Peter Loew",
+        "director":"Robert Bierman",
+        "__v":0
+    }
+]</code></pre>
+        <h2>Get Movies by Genre</h2>
+        <pre><code class="language-js">https://api.ncmdb.com/api/movies/genre/"Genre"</code></pre>
+        <p>Example:</p>
+                <pre>
+<code class="language-js">// URL:
+const url = https://api.ncmdb.com/api/movies/genre/Comedy
+// Result:
+[
+    {
+        "genres":
+            ["Comedy","Horror"],
+        "supportingActors":
+            ["Maria Conchita Alonso","Jennifer Beals","Elizabeth Ashley"],
+        "_id":"5c81c41f3d09c8aab371b649",
+        "id":29,
+        "imdb_id":"tt0098577",
+        "overview":"A publishing executive is visited and bitten by a vampire and starts exhibiting erratic behavior. He pushes
+        his secretary to extremes as he tries to come to terms with his affliction. The vampire continues to visit and drink his
+        blood, and as his madness deepens, it begins to look as if some of the events he's experiencing may be hallucinations.",
+        "release_date":"1988-09-17",
+        "tagline":"Seduction. Romance. Murder. The things one does for love.",
+        "title":"Vampire's Kiss",
+        "character":"Peter Loew",
+        "director":"Robert Bierman",
+        "__v":0
+    },...
+]</code></pre>
+        <h2>Get Movies by Internal ID</h2>
+        <pre><code class="language-js">https://api.ncmdb.com/api/movies/id/"Internal ID"</code></pre>
+        <p>Example:</p>
+        <pre>
+<code class="language-js">// URL:
+const url = https://api.ncmdb.com/api/movies/id/29 
+//NOTE: The internal ID route uses the number stored in "id" and NOT "_id"
+// Result:
+[
+    {
+        "genres":
+            ["Comedy","Horror"],
+        "supportingActors":
+            ["Maria Conchita Alonso","Jennifer Beals","Elizabeth Ashley"],
+        "_id":"5c81c41f3d09c8aab371b649",
+        "id":29,
+        "imdb_id":"tt0098577",
+        "overview":"A publishing executive is visited and bitten by a vampire and starts exhibiting erratic behavior. He pushes
+        his secretary to extremes as he tries to come to terms with his affliction. The vampire continues to visit and drink his
+        blood, and as his madness deepens, it begins to look as if some of the events he's experiencing may be hallucinations.",
+        "release_date":"1988-09-17",
+        "tagline":"Seduction. Romance. Murder. The things one does for love.",
+        "title":"Vampire's Kiss",
+        "character":"Peter Loew",
+        "director":"Robert Bierman",
+        "__v":0
+    }
+]</code></pre>
+</div>
+
+    <div class="footer">  
+        <p>Made by <a target="_blank" href="https://github.com/Giagnus64">Gianfranco Nuschese</a></p> 
+        <p>Legal disclaimer: This website and its creators are not affiliated with Nicolas Cage, any motion picture corporation, any television corporation, parent, or affiliate corporation. All motion pictures, products, and brands mentioned on this website are the respective trademarks and copyrights of their owners.</p>
+    </div>
+    <!-- Prism Script for code formatting in browser-->
+     <script src="scripts/prism.js"></script>   
+    </body>
+    
+</html>
