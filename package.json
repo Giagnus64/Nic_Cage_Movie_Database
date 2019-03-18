@@ -4,6 +4,7 @@
   "description": "",
   "main": "character_raw.js",
   "scripts": {
+    "start": "node app.js",
     "dev_start": "nodemon app",
     "server_start": "node app",
     "nodemon": "nodemon --config './nodemon.json'"
