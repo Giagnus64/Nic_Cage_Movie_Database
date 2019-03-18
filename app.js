@@ -5,9 +5,13 @@ const movieList = require('./sorted/moviesV2.json');
 const middleWare = require('./middleware');
 
 
-mongoose.connect('mongodb://localhost:27017/nic_cage_movie_database', {useNewUrlParser: true});
+mongoose.connect(
+    process.env.DATABASEURL, { useNewUrlParser: true }
+);
+console.log(process.env.DATABASEURL);
 
 const app = express();
+
 
 //MiddleWare
 app.use(express.json());
@@ -53,4 +57,5 @@ Movie.create({
 //Seed Database
 movieList.movies.forEach((movieObj) => {
     Movie.create(movieObj);
-});*/
+});
+*/
